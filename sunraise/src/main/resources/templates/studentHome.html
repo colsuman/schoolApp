@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sunrise English Public School</title>
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, sans-serif;
+background:#f4f4f4;
+display:flex;
+flex-direction:column;
+min-height:100vh;
+}
+
+/* HEADER */
+
+header{
+background:#b30000;
+color:white;
+text-align:center;
+padding:25px;
+}
+
+header h1{
+font-size:38px;
+}
+
+/* LOGOUT BUTTONS */
+
+.top-buttons{
+position:absolute;
+top:20px;
+right:30px;
+}
+
+.top-buttons a{
+background:white;
+color:#b30000;
+padding:8px 14px;
+margin-left:10px;
+text-decoration:none;
+font-weight:bold;
+border-radius:4px;
+font-size:14px;
+}
+
+/* NAVIGATION */
+
+nav{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:30px;
+background:#111;
+padding:12px 0;
+flex-wrap:nowrap;   /* Prevent items from going to next line */
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-size:16px;
+font-weight:bold;
+padding:5px 10px;
+}
+
+nav a:hover{
+color:#ffcc00;
+}
+
+/* DROPDOWN */
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-content{
+display:none;
+position:absolute;
+background:white;
+min-width:180px;
+box-shadow:0 2px 6px rgba(0,0,0,0.3);
+}
+
+.dropdown-content a{
+color:black;
+display:block;
+padding:10px;
+}
+
+.dropdown-content a:hover{
+background:#eee;
+}
+
+.dropdown:hover .dropdown-content{
+display:block;
+}
+
+/* MAIN CONTENT */
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+padding:40px;
+background:white;
+flex:1;
+}
+
+/* SECTIONS */
+
+.section{
+margin-bottom:40px;
+}
+
+.section h2{
+color:#b30000;
+border-bottom:2px solid #b30000;
+padding-bottom:8px;
+margin-bottom:15px;
+}
+
+/* CONTACT */
+
+.contact{
+background:#b30000;
+color:white;
+text-align:center;
+padding:30px;
+}
+
+/* FOOTER */
+
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="top-buttons">
+<a href="/login">Logout</a>
+</div>
+
+<h1>Sunrise English Public School</h1>
+<p>CBSE Pattern English Medium</p>
+<p>Established: 2018 | UDISE Code: 10361407546</p>
+
+</header>
+
+<!-- NAVIGATION -->
+
+<nav>
+
+<a href="/home">Home</a>
+<a href="/about">About</a>
+
+<div class="dropdown">
+<a href="#">Facilities</a>
+
+<div class="dropdown-content">
+<a href="/director">Director</a>
+<a href="/teachers">Teachers</a>
+</div>
+
+</div>
+
+<div class="dropdown">
+<a href="#">Admissions</a>
+
+<div class="dropdown-content">
+<a href="/admissionsForm">Admission Form</a>
+<a href="/feeStructure">Fee Structure</a>
+<a href="/documents">Required Documents</a>
+</div>
+
+</div>
+
+<div class="dropdown">
+<a href="/achievements">Achievements</a>
+
+<div class="dropdown-content">
+<a href="/result">Result</a>
+<a href="/schoolAwards">School Awards</a>
+</div>
+
+</div>
+
+<a href="/gallery">Gallery</a>
+
+</nav>
+
+<!-- MAIN CONTENT -->
+
+<div class="container">
+
+<div class="section">
+<h2>Student Home Page</h2>
+
+<p>
+Welcome to Student page
+</p>
+
+</div>
+
+</div>
+
+<!-- CONTACT -->
+
+<div class="contact">
+
+<h2>Contact Us</h2>
+<p>Mobile: 6206646163</p>
+<p>Koyri Tola Devi Sthan Road, Warsaliganj (Nawada), Bihar</p>
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+<p>© 2026 Sunrise English Public School</p>
+</footer>
+
+</body>
+</html>

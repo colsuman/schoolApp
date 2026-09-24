@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Signup - Sunrise English Public School</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#6a0000,#b30000);min-height:100vh;display:flex;flex-direction:column;}
+header{text-align:center;padding:24px 20px;color:white;}
+header h1{font-size:28px;letter-spacing:1px;text-shadow:1px 2px 4px rgba(0,0,0,0.4);}
+header p{font-size:13px;margin-top:4px;opacity:0.85;}
+nav{display:flex;justify-content:center;align-items:center;gap:10px;background:rgba(0,0,0,0.3);padding:0 20px;flex-wrap:wrap;backdrop-filter:blur(6px);}
+nav a{color:white;text-decoration:none;font-size:15px;font-weight:bold;padding:13px 12px;display:inline-block;transition:color 0.2s,background 0.2s;}
+nav a:hover{color:#ffcc00;background:rgba(255,255,255,0.08);}
+.dropdown{position:relative;}
+.dropdown-content{display:none;position:absolute;background:white;min-width:190px;box-shadow:0 6px 16px rgba(0,0,0,0.2);top:100%;left:0;border-top:3px solid #ffcc00;z-index:100;}
+.dropdown-content a{color:#222;display:block;padding:11px 16px;font-weight:normal;font-size:14px;transition:background 0.2s,color 0.2s;}
+.dropdown-content a:hover{background:#fdf0f0;color:#b30000;}
+.dropdown:hover .dropdown-content{display:block;}
+.main{flex:1;display:flex;justify-content:center;align-items:center;padding:20px;}
+.signup-box{background:white;padding:36px;width:460px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.signup-box .icon{text-align:center;font-size:44px;margin-bottom:8px;}
+.signup-box h2{text-align:center;color:#b30000;font-size:22px;margin-bottom:4px;}
+.signup-box .subtitle{text-align:center;color:#999;font-size:13px;margin-bottom:22px;}
+.input-group{position:relative;margin-bottom:6px;}
+.input-group span.ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px;}
+.input-group input,.input-group select{width:100%;padding:11px 14px 11px 40px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;transition:border 0.2s;background:white;}
+.input-group input:focus,.input-group select:focus{outline:none;border-color:#b30000;}
+.file-group{margin-bottom:6px;}
+.file-group label{display:block;font-size:13px;color:#555;margin-bottom:6px;font-weight:600;}
+.file-group input[type="file"]{width:100%;padding:10px;border:1.5px dashed #ddd;border-radius:8px;font-size:13px;cursor:pointer;background:#fafafa;}
+.file-group input[type="file"]:hover{border-color:#b30000;}
+.error{color:#e00;font-size:12px;margin-bottom:8px;padding-left:4px;}
+button{width:100%;padding:13px;background:linear-gradient(135deg,#b30000,#e05555);color:white;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px;transition:opacity 0.2s;}
+button:hover{opacity:0.9;}
+.links{margin-top:18px;text-align:center;font-size:14px;color:#666;}
+.links a{color:#b30000;text-decoration:none;font-weight:bold;}
+.links a:hover{text-decoration:underline;}
+footer{text-align:center;color:rgba(255,255,255,0.6);padding:16px;font-size:13px;}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>&#127891; Sunrise English Public School</h1>
+    <p>CBSE Pattern &bull; English Medium</p>
+</header>
+
+<nav>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <div class="dropdown">
+        <a href="#">Facilities &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/director">&#127891; Director</a>
+            <a href="/teachers">&#128104;&#8205;&#127979; Teachers</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#">Admissions &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/admissionsForm">&#128203; Admission Form</a>
+            <a href="/feeStructure">&#128176; Fee Structure</a>
+            <a href="/documents">&#128196; Required Documents</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#">Achievements &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/result">&#127942; Result</a>
+            <a href="/schoolAwards">&#127894; School Awards</a>
+        </div>
+    </div>
+    <a href="/gallery">Gallery</a>
+</nav>
+
+<div class="main">
+    <div class="signup-box">
+        <div class="icon">&#128100;</div>
+        <h2>Create Account</h2>
+        <p class="subtitle">Join Sunrise English Public School</p>
+
+        <form action="/signup" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+
+            <div class="input-group">
+                <span class="ico">&#127891;</span>
+                <select name="userType" id="userType">
+                    <option value="">Select User Type</option>
+                    <option value="STUDENT">Student</option>
+                    <option value="TEACHER">Teacher</option>
+                    <option value="DIRECTOR">Director</option>
+                </select>
+            </div>
+            <div class="error" id="userTypeError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128100;</span>
+                <input type="text" id="name" name="name" placeholder="Full Name">
+            </div>
+            <div class="error" id="nameError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128231;</span>
+                <input type="email" id="email" name="email" placeholder="Email Address">
+            </div>
+            <div class="error" id="emailError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128241;</span>
+                <input type="text" id="mobileNo" name="mobileNo" placeholder="Mobile Number">
+            </div>
+            <div class="error" id="mobileError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128101;</span>
+                <input type="text" id="username" name="username" placeholder="Username">
+            </div>
+            <div class="error" id="usernameError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128274;</span>
+                <input type="password" id="password" name="password" placeholder="Password">
+            </div>
+            <div class="error" id="passwordError"></div>
+
+            <div class="file-group">
+                <label>&#128247; Upload Profile Picture</label>
+                <input type="file" id="profilePicFile" name="profilePicFile" accept="image/*">
+            </div>
+            <div class="error" id="imageError"></div>
+
+            <button type="submit">Create Account &#8594;</button>
+        </form>
+
+        <div class="links">Already have an account? <a href="/login">Login</a></div>
+    </div>
+</div>
+
+<footer><p>&copy; 2026 Sunrise English Public School</p></footer>
+
+<script>
+function validateForm() {
+    let valid = true;
+    document.querySelectorAll(".error").forEach(e => e.innerText = "");
+
+    let userType = document.getElementById("userType").value;
+    if (userType === "") { document.getElementById("userTypeError").innerText = "Please select user type"; valid = false; }
+
+    let name = document.getElementById("name").value.trim();
+    if (name === "") { document.getElementById("nameError").innerText = "Name is required"; valid = false; }
+
+    let email = document.getElementById("email").value.trim();
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") { document.getElementById("emailError").innerText = "Email is required"; valid = false; }
+    else if (!emailPattern.test(email)) { document.getElementById("emailError").innerText = "Enter valid email"; valid = false; }
+
+    let mobile = document.getElementById("mobileNo").value.trim();
+    if (mobile === "") { document.getElementById("mobileError").innerText = "Mobile Number is required"; valid = false; }
+    else if (!/^[6-9]\d{9}$/.test(mobile)) { document.getElementById("mobileError").innerText = "Enter valid 10-digit mobile number"; valid = false; }
+
+    let username = document.getElementById("username").value.trim();
+    if (username.length < 4) { document.getElementById("usernameError").innerText = "Username must be at least 4 characters"; valid = false; }
+
+    let password = document.getElementById("password").value;
+    if (password.length < 6) { document.getElementById("passwordError").innerText = "Password must be at least 6 characters"; valid = false; }
+
+    let image = document.getElementById("profilePicFile").files[0];
+    if (!image) { document.getElementById("imageError").innerText = "Please upload profile picture"; valid = false; }
+    else {
+        let allowedTypes = ["image/jpeg", "image/png", "image/jpg"];
+        if (!allowedTypes.includes(image.type)) { document.getElementById("imageError").innerText = "Only JPG or PNG images allowed"; valid = false; }
+        else if (image.size > 2 * 1024 * 1024) { document.getElementById("imageError").innerText = "Image must be less than 2MB"; valid = false; }
+    }
+    return valid;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forgot Password - Sunrise English Public School</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:linear-gradient(135deg,#6a0000,#b30000);min-height:100vh;display:flex;flex-direction:column;}
+header{text-align:center;padding:30px 20px;color:white;}
+header h1{font-size:28px;letter-spacing:1px;text-shadow:1px 2px 4px rgba(0,0,0,0.4);}
+header p{font-size:13px;margin-top:4px;opacity:0.85;}
+.main{flex:1;display:flex;justify-content:center;align-items:center;padding:20px;}
+.box{background:white;padding:40px 36px;width:420px;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+.box .icon{text-align:center;font-size:48px;margin-bottom:10px;}
+.box h2{text-align:center;color:#b30000;font-size:22px;margin-bottom:4px;}
+.box .subtitle{text-align:center;color:#999;font-size:13px;margin-bottom:24px;}
+.input-group{position:relative;margin-bottom:14px;}
+.input-group span.ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:15px;}
+.input-group input,.input-group select{width:100%;padding:12px 14px 12px 40px;border:1.5px solid #ddd;border-radius:8px;font-size:14px;transition:border 0.2s;background:white;}
+.input-group input:focus,.input-group select:focus{outline:none;border-color:#b30000;}
+.alert{padding:12px 16px;border-radius:8px;margin-bottom:16px;font-size:14px;font-weight:bold;}
+.alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb;}
+.alert-error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb;}
+.error{color:#e00;font-size:12px;margin-top:-10px;margin-bottom:10px;padding-left:4px;}
+button{width:100%;padding:13px;background:linear-gradient(135deg,#b30000,#e05555);color:white;border:none;border-radius:8px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:4px;transition:opacity 0.2s;}
+button:hover{opacity:0.9;}
+.links{margin-top:20px;text-align:center;font-size:14px;color:#666;}
+.links a{color:#b30000;text-decoration:none;font-weight:bold;}
+.links a:hover{text-decoration:underline;}
+footer{text-align:center;color:rgba(255,255,255,0.6);padding:16px;font-size:13px;}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>&#127891; Sunrise English Public School</h1>
+    <p>CBSE Pattern &bull; English Medium</p>
+</header>
+
+<div class="main">
+    <div class="box">
+        <div class="icon">&#128273;</div>
+        <h2>Reset Password</h2>
+        <p class="subtitle">Enter your details to reset your password</p>
+
+        <div th:if="${message}" th:classappend="${message.contains('success') ? 'alert-success' : 'alert-error'}" class="alert">
+            <span th:text="${message}"></span>
+        </div>
+
+        <form action="/forgotPwd" method="post" onsubmit="return validateForm()">
+
+            <div class="input-group">
+                <span class="ico">&#127891;</span>
+                <select name="userType" id="userType" required>
+                    <option value="">Select User Type</option>
+                    <option value="STUDENT">Student</option>
+                    <option value="TEACHER">Teacher</option>
+                    <option value="DIRECTOR">Director</option>
+                </select>
+            </div>
+            <div class="error" id="userTypeError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128231;</span>
+                <input type="email" id="emailId" name="emailId" placeholder="Registered Email">
+            </div>
+            <div class="error" id="emailError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128274;</span>
+                <input type="password" id="password" name="password" placeholder="New Password">
+            </div>
+            <div class="error" id="passwordError"></div>
+
+            <div class="input-group">
+                <span class="ico">&#128275;</span>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm New Password">
+            </div>
+            <div class="error" id="confirmError"></div>
+
+            <button type="submit">Reset Password &#8594;</button>
+        </form>
+
+        <div class="links"><a href="/login">&#8592; Back to Login</a></div>
+    </div>
+</div>
+
+<footer><p>&copy; 2026 Sunrise English Public School</p></footer>
+
+<script>
+function validateForm() {
+    let valid = true;
+    document.querySelectorAll(".error").forEach(e => e.innerText = "");
+
+    let userType = document.getElementById("userType").value;
+    if (userType === "") { document.getElementById("userTypeError").innerText = "Please select user type"; valid = false; }
+
+    let email = document.getElementById("emailId").value.trim();
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email === "") { document.getElementById("emailError").innerText = "Email is required"; valid = false; }
+    else if (!emailPattern.test(email)) { document.getElementById("emailError").innerText = "Enter valid email"; valid = false; }
+
+    let password = document.getElementById("password").value;
+    if (password.length < 6) { document.getElementById("passwordError").innerText = "Password must be at least 6 characters"; valid = false; }
+
+    let confirm = document.getElementById("confirmPassword").value;
+    if (confirm === "") { document.getElementById("confirmError").innerText = "Please confirm your password"; valid = false; }
+    else if (confirm !== password) { document.getElementById("confirmError").innerText = "Passwords do not match"; valid = false; }
+
+    return valid;
+}
+</script>
+</body>
+</html>

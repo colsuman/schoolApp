@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Director's Message - Sunrise English Public School</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+header {
+    background: linear-gradient(135deg, #6a0000, #b30000, #d94f4f);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+header h1 {
+    font-size: 38px;
+    letter-spacing: 1px;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.4);
+}
+
+header p {
+    font-size: 15px;
+    margin-top: 6px;
+    opacity: 0.9;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #111;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 14px 12px;
+    display: inline-block;
+    transition: color 0.2s, background 0.2s;
+}
+
+nav a:hover {
+    color: #ffcc00;
+    background: rgba(255,255,255,0.05);
+}
+
+/* DROPDOWN */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 190px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    top: 100%;
+    left: 0;
+    border-top: 3px solid #b30000;
+    z-index: 100;
+}
+
+.dropdown-content a {
+    color: #222;
+    display: block;
+    padding: 11px 16px;
+    font-weight: normal;
+    font-size: 14px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background: #fdf0f0;
+    color: #b30000;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* HERO BANNER */
+
+.hero-banner {
+    background: linear-gradient(135deg, #7a0000 0%, #b30000 50%, #e05555 100%);
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-banner::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+    animation: pulse 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.hero-banner h2 {
+    font-size: 32px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.hero-banner p {
+    font-size: 15px;
+    margin-top: 10px;
+    opacity: 0.85;
+    position: relative;
+}
+
+.hero-divider {
+    width: 60px;
+    height: 4px;
+    background: #ffcc00;
+    margin: 14px auto 0;
+    border-radius: 2px;
+    position: relative;
+}
+
+/* MAIN CONTAINER */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: 40px auto;
+    flex: 1;
+}
+
+/* DIRECTOR PROFILE CARD */
+
+.director-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-left: 6px solid #b30000;
+    margin-bottom: 40px;
+    transition: box-shadow 0.3s;
+}
+
+.director-card:hover {
+    box-shadow: 0 12px 40px rgba(179,0,0,0.15);
+}
+
+.director-image-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.director-card img {
+    width: 200px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 14px;
+    border: 5px solid #b30000;
+    box-shadow: 0 6px 20px rgba(179,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.director-card img:hover {
+    transform: scale(1.03);
+}
+
+.badge {
+    background: linear-gradient(135deg, #b30000, #e05555);
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 3px 8px rgba(179,0,0,0.3);
+}
+
+/* DIRECTOR TEXT */
+
+.director-text {
+    flex: 1;
+}
+
+.director-text h3 {
+    color: #b30000;
+    font-size: 28px;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+}
+
+.designation {
+    font-size: 15px;
+    color: #777;
+    margin-bottom: 6px;
+    font-style: italic;
+}
+
+.qualification {
+    display: inline-block;
+    background: #fff3f3;
+    color: #b30000;
+    border: 1px solid #f5c0c0;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.divider-line {
+    width: 50px;
+    height: 3px;
+    background: #b30000;
+    border-radius: 2px;
+    margin-bottom: 18px;
+}
+
+.director-text p {
+    line-height: 1.85;
+    color: #444;
+    font-size: 15px;
+    margin-bottom: 14px;
+    text-align: justify;
+}
+
+.signature {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed #ddd;
+}
+
+.signature p {
+    margin: 0;
+    font-size: 14px;
+    color: #888;
+}
+
+.signature strong {
+    color: #b30000;
+    font-size: 16px;
+    display: block;
+    margin-top: 4px;
+}
+
+/* QUOTE SECTION */
+
+.quote-section {
+    background: linear-gradient(135deg, #7a0000, #b30000);
+    color: white;
+    text-align: center;
+    padding: 50px 30px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-section::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 180px;
+    color: rgba(255,255,255,0.07);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.quote-section blockquote {
+    font-size: 20px;
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: 0 auto 16px;
+    position: relative;
+}
+
+.quote-section cite {
+    font-size: 14px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+/* VISION MISSION CARDS */
+
+.cards-row {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    flex: 1;
+    background: white;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-top: 5px solid #b30000;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 28px rgba(179,0,0,0.15);
+}
+
+.info-card .icon {
+    font-size: 36px;
+    margin-bottom: 14px;
+}
+
+.info-card h3 {
+    color: #b30000;
+    font-size: 18px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info-card p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* CONTACT */
+
+.contact {
+    background: linear-gradient(135deg, #7a0000, #b30000);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.contact h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.contact p {
+    font-size: 15px;
+    margin: 5px 0;
+    opacity: 0.9;
+}
+
+/* FOOTER */
+
+footer {
+    background: #1a1a1a;
+    color: #aaa;
+    text-align: center;
+    padding: 14px;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .director-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .divider-line {
+        margin: 0 auto 18px;
+    }
+    .cards-row {
+        flex-direction: column;
+    }
+    header h1 {
+        font-size: 26px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <h1>&#127891; Sunrise English Public School</h1>
+    <p>CBSE Pattern &bull; English Medium &bull; Est. 2010</p>
+</header>
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+
+    <div class="dropdown">
+        <a href="#">Facilities &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/director">&#127891; Director</a>
+            <a href="/teachers">&#128104;&#8205;&#127979; Teachers</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <a href="#">Admissions &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/admissionsForm">&#128203; Admission Form</a>
+            <a href="/feeStructure">&#128176; Fee Structure</a>
+            <a href="/documents">&#128196; Required Documents</a>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <a href="/achievements">Achievements &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/result">&#127942; Result</a>
+            <a href="/schoolAwards">&#127894; School Awards</a>
+        </div>
+    </div>
+
+    <a href="/gallery">Gallery</a>
+</nav>
+
+<!-- HERO BANNER -->
+<div class="hero-banner">
+    <h2>Director's Message</h2>
+    <p>Inspiring Excellence &bull; Shaping Futures</p>
+    <div class="hero-divider"></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    <!-- DIRECTOR PROFILE CARD -->
+    <div class="director-card">
+
+        <div class="director-image-wrapper">
+            <img th:if="${directorImage != null}" th:src="${directorImage}" alt="Director Photo">
+            <img th:unless="${directorImage != null}" src="/images/default-director.png" alt="Director Photo">
+            <span class="badge">&#127775; Director</span>
+        </div>
+
+        <div class="director-text">
+            <h3 th:text="${director != null ? director.name : 'Director'}">Director</h3>
+            <p class="designation">Founder &amp; Director, Sunrise English Public School</p>
+            <span class="qualification">B.Tech | M.Tech | Education Visionary</span>
+            <div class="divider-line"></div>
+
+            <p>
+                Welcome to <strong>Sunrise English Public School</strong>. It is my privilege and honour
+                to lead this institution that stands as a beacon of quality education in our community.
+                Our mission is to provide an environment where every child can discover their unique
+                potential and grow into a confident, responsible, and compassionate individual.
+            </p>
+
+            <p>
+                We believe that education is not merely about academic achievement — it is about
+                building character, nurturing curiosity, and instilling values that last a lifetime.
+                Our dedicated team of educators works tirelessly to ensure that every student receives
+                the attention, guidance, and inspiration they deserve.
+            </p>
+
+            <p>
+                Together, with the support of parents and the community, we are committed to making
+                Sunrise English Public School a place where dreams take flight and futures are built.
+            </p>
+
+            <div class="signature">
+                <p>With warm regards,</p>
+                <strong th:text="${director != null ? director.name : 'Director'}">Director</strong>
+                <p style="font-size:13px; color:#999;">Director, Sunrise English Public School</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- QUOTE SECTION -->
+    <div class="quote-section">
+        <blockquote>
+            "Education is the most powerful weapon which you can use to change the world.
+            At Sunrise, we don't just teach — we inspire, we guide, and we transform."
+        </blockquote>
+        <cite th:text="'— ' + (${director != null ? director.name : 'Director'}) + ', Director'">— Director</cite>
+    </div>
+
+    <!-- VISION / MISSION / VALUES CARDS -->
+    <div class="cards-row">
+
+        <div class="info-card">
+            <div class="icon">&#127919;</div>
+            <h3>Our Vision</h3>
+            <p>To be a centre of excellence that empowers every student with knowledge, skills,
+            and values to thrive in a rapidly changing world.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">&#128218;</div>
+            <h3>Our Mission</h3>
+            <p>To deliver holistic, student-centred education through innovative teaching,
+            strong discipline, and a nurturing environment that fosters lifelong learning.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="icon">&#10024;</div>
+            <h3>Our Values</h3>
+            <p>Integrity, Excellence, Respect, Compassion, and Innovation — the five pillars
+            that guide every decision and action at Sunrise English Public School.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="contact">
+    <h2>&#128222; Contact Us</h2>
+    <p>&#128241; Mobile: 7696843132</p>
+    <p>&#128205; Nawada, Bihar</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Sunrise English Public School. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

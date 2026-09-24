@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fee Structure - Sunrise English Public School</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;display:flex;flex-direction:column;min-height:100vh;}
+header{background:linear-gradient(135deg,#6a0000,#b30000,#d94f4f);color:white;text-align:center;padding:30px 20px;box-shadow:0 4px 12px rgba(0,0,0,0.3);}
+header h1{font-size:36px;letter-spacing:1px;text-shadow:1px 2px 4px rgba(0,0,0,0.4);}
+header p{font-size:14px;margin-top:5px;opacity:0.9;}
+nav{display:flex;justify-content:center;align-items:center;gap:10px;background:#111;padding:0 20px;flex-wrap:wrap;}
+nav a{color:white;text-decoration:none;font-size:15px;font-weight:bold;padding:14px 12px;display:inline-block;transition:color 0.2s,background 0.2s;}
+nav a:hover{color:#ffcc00;background:rgba(255,255,255,0.05);}
+.dropdown{position:relative;}
+.dropdown-content{display:none;position:absolute;background:white;min-width:190px;box-shadow:0 6px 16px rgba(0,0,0,0.2);top:100%;left:0;border-top:3px solid #b30000;z-index:100;}
+.dropdown-content a{color:#222;display:block;padding:11px 16px;font-weight:normal;font-size:14px;transition:background 0.2s,color 0.2s;}
+.dropdown-content a:hover{background:#fdf0f0;color:#b30000;}
+.dropdown:hover .dropdown-content{display:block;}
+.hero-banner{background:linear-gradient(135deg,#7a0000,#b30000,#e05555);color:white;text-align:center;padding:46px 20px;position:relative;overflow:hidden;}
+.hero-banner::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,0.05) 0%,transparent 60%);animation:pulse 6s ease-in-out infinite;}
+@keyframes pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.1);}}
+.hero-banner h2{font-size:30px;letter-spacing:2px;text-transform:uppercase;position:relative;}
+.hero-banner p{font-size:15px;margin-top:8px;opacity:0.85;position:relative;}
+.hero-divider{width:60px;height:4px;background:#ffcc00;margin:14px auto 0;border-radius:2px;}
+.container{width:92%;max-width:1000px;margin:40px auto;flex:1;}
+.section-title{color:#b30000;font-size:20px;border-left:5px solid #b30000;padding-left:14px;margin-bottom:22px;font-weight:bold;}
+.note-card{background:#fff8f8;border:1px solid #f5c0c0;border-radius:12px;padding:18px 22px;margin-bottom:30px;color:#7a0000;font-size:14px;line-height:1.7;}
+.note-card strong{display:block;margin-bottom:6px;font-size:15px;}
+.fee-card{background:white;border-radius:16px;padding:30px;box-shadow:0 4px 16px rgba(0,0,0,0.08);margin-bottom:30px;border-top:5px solid #b30000;}
+table{width:100%;border-collapse:collapse;}
+thead tr{background:linear-gradient(135deg,#b30000,#e05555);color:white;}
+thead th{padding:14px 16px;text-align:left;font-size:14px;letter-spacing:0.5px;}
+tbody tr{border-bottom:1px solid #f0f0f0;transition:background 0.2s;}
+tbody tr:hover{background:#fdf5f5;}
+tbody tr:last-child{border-bottom:none;font-weight:bold;background:#fff3f3;}
+tbody td{padding:13px 16px;font-size:14px;color:#444;}
+tbody td:last-child{color:#b30000;font-weight:600;}
+.badge-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:30px;}
+.badge-item{flex:1;min-width:180px;background:white;border-radius:14px;padding:22px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,0.08);border-top:5px solid #b30000;transition:transform 0.3s;}
+.badge-item:hover{transform:translateY(-4px);}
+.badge-item .bicon{font-size:32px;margin-bottom:10px;}
+.badge-item h3{color:#b30000;font-size:15px;margin-bottom:4px;}
+.badge-item p{color:#777;font-size:13px;}
+.contact{background:linear-gradient(135deg,#7a0000,#b30000);color:white;text-align:center;padding:40px 20px;}
+.contact h2{font-size:22px;margin-bottom:12px;}
+.contact p{font-size:15px;margin:5px 0;opacity:0.9;}
+footer{background:#1a1a1a;color:#aaa;text-align:center;padding:14px;font-size:13px;}
+@media(max-width:768px){header h1{font-size:24px;}.badge-row{flex-direction:column;}table{font-size:12px;}thead th,tbody td{padding:10px 10px;}}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>&#127891; Sunrise English Public School</h1>
+    <p>CBSE Pattern &bull; English Medium &bull; Est. 2018</p>
+</header>
+
+<nav>
+    <a href="/home">Home</a>
+    <a href="/about">About</a>
+    <div class="dropdown">
+        <a href="#">Facilities &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/director">&#127891; Director</a>
+            <a href="/teachers">&#128104;&#8205;&#127979; Teachers</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#">Admissions &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/admissionsForm">&#128203; Admission Form</a>
+            <a href="/feeStructure">&#128176; Fee Structure</a>
+            <a href="/documents">&#128196; Documents</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <a href="#">Achievements &#9660;</a>
+        <div class="dropdown-content">
+            <a href="/result">&#127942; Result</a>
+            <a href="/schoolAwards">&#127894; School Awards</a>
+        </div>
+    </div>
+    <a href="/gallery">Gallery</a>
+</nav>
+
+<div class="hero-banner">
+    <h2>&#128176; Fee Structure</h2>
+    <p>Transparent &bull; Affordable &bull; Session 2026</p>
+    <div class="hero-divider"></div>
+</div>
+
+<div class="container">
+
+    <div class="badge-row">
+        <div class="badge-item"><div class="bicon">&#128197;</div><h3>Session</h3><p>April 2026 – March 2027</p></div>
+        <div class="badge-item"><div class="bicon">&#128176;</div><h3>Payment Mode</h3><p>Cash / Online / Cheque</p></div>
+        <div class="badge-item"><div class="bicon">&#128203;</div><h3>Due Date</h3><p>10th of every month</p></div>
+        <div class="badge-item"><div class="bicon">&#128222;</div><h3>Enquiry</h3><p>Call: 7696843132</p></div>
+    </div>
+
+    <div class="note-card">
+        <strong>&#128204; Important Note</strong>
+        All fees are to be paid by the 10th of each month. Late payment will attract a fine of ₹50 per month.
+        Admission fee is a one-time non-refundable payment. Fee once paid will not be refunded under any circumstances.
+    </div>
+
+    <div class="fee-card">
+        <h2 class="section-title">&#127979; Pre-Primary (Nursery – UKG)</h2>
+        <table>
+            <thead><tr><th>Fee Type</th><th>Frequency</th><th>Amount</th></tr></thead>
+            <tbody>
+                <tr><td>Admission Fee</td><td>One Time</td><td>₹1,500</td></tr>
+                <tr><td>Tuition Fee</td><td>Monthly</td><td>₹400</td></tr>
+                <tr><td>Activity Fee</td><td>Quarterly</td><td>₹300</td></tr>
+                <tr><td>Annual Charges</td><td>Yearly</td><td>₹800</td></tr>
+                <tr><td colspan="2"><strong>Total Annual Cost</strong></td><td>₹7,700</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="fee-card">
+        <h2 class="section-title">&#127979; Primary (Class 1 – Class 5)</h2>
+        <table>
+            <thead><tr><th>Fee Type</th><th>Frequency</th><th>Amount</th></tr></thead>
+            <tbody>
+                <tr><td>Admission Fee</td><td>One Time</td><td>₹2,000</td></tr>
+                <tr><td>Tuition Fee</td><td>Monthly</td><td>₹550</td></tr>
+                <tr><td>Computer Lab Fee</td><td>Quarterly</td><td>₹400</td></tr>
+                <tr><td>Sports Fee</td><td>Yearly</td><td>₹500</td></tr>
+                <tr><td>Annual Charges</td><td>Yearly</td><td>₹1,000</td></tr>
+                <tr><td colspan="2"><strong>Total Annual Cost</strong></td><td>₹10,100</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="fee-card">
+        <h2 class="section-title">&#127979; Middle School (Class 6 – Class 8)</h2>
+        <table>
+            <thead><tr><th>Fee Type</th><th>Frequency</th><th>Amount</th></tr></thead>
+            <tbody>
+                <tr><td>Admission Fee</td><td>One Time</td><td>₹2,500</td></tr>
+                <tr><td>Tuition Fee</td><td>Monthly</td><td>₹700</td></tr>
+                <tr><td>Computer Lab Fee</td><td>Quarterly</td><td>₹500</td></tr>
+                <tr><td>Science Lab Fee</td><td>Quarterly</td><td>₹400</td></tr>
+                <tr><td>Sports Fee</td><td>Yearly</td><td>₹600</td></tr>
+                <tr><td>Annual Charges</td><td>Yearly</td><td>₹1,200</td></tr>
+                <tr><td colspan="2"><strong>Total Annual Cost</strong></td><td>₹13,500</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div class="contact">
+    <h2>&#128222; Contact Us</h2>
+    <p>&#128241; Mobile: 7696843132</p>
+    <p>&#128205; Nawada, Bihar</p>
+</div>
+
+<footer><p>&copy; 2026 Sunrise English Public School. All Rights Reserved.</p></footer>
+
+</body>
+</html>
